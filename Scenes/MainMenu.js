@@ -2,7 +2,6 @@ class MainMenu extends Phaser.Scene
 {
     constructor()
     {
-        // Creates the name for the level
         super("MainMenu")
     }
 
@@ -13,12 +12,16 @@ class MainMenu extends Phaser.Scene
 
     create()
     {
-        // Calls Main Menu in console
-        console.log("Scene: Main Menu")
+
     }
 
     update()
     {
 
+    }
+
+    onClickStart()
+    {
+        this.scene.switch("MainMenu")
     }
 }

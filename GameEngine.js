@@ -3,7 +3,8 @@ var config = {
     width: 1600,
     height: 900,
 
-    scene: [MainMenu]
+    scene: [StartScreen,MainMenu]
+
 }
 
 new Phaser.Game(config)
