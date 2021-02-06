@@ -18,7 +18,7 @@ class MainMenu extends Phaser.Scene
 
             // Coins Per Second
             this.coinsPerSecondButton = null;
-            this.coinsPerSecond = null;
+            this.coinsPerSecond = 0;
             this.coinsPerSecondText = null;
             this.coinsPerSecondAmount = 0;
 
@@ -62,13 +62,18 @@ class MainMenu extends Phaser.Scene
             this.coinsPerSecondButton.setInteractive()
 
             // Turns the button into an on state of interaction
+            this.coinsPerSecondButton.on("pointerdown",this.onClickClickPerSecUpgrade,this)
 
-
+            // Creates the coins per second text
+            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
     }
 
     update()
     {
-        
+        if(this.coinsPerSecond > 0)
+        {
+            this.money += this.coinsPerSecond;
+        }
     }
 
     // Creates a function for clicking the red square and adding money
@@ -88,6 +93,8 @@ class MainMenu extends Phaser.Scene
 
     onClickClickPerSecUpgrade()
     {
+        this.coinsPerSecond += 1;
+        this.coinsPerSecondText.setText("Coins Per Second:" + this.coinsPerSecond)
 
     }
 
