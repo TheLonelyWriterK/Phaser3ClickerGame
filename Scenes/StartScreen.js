@@ -2,7 +2,7 @@ class StartScreen extends Phaser.Scene
 {
     constructor()
     {
-        // Creates the name for the level
+        // Names the level StartScreen
         super("StartScreen")
 
         // Variables
@@ -12,7 +12,7 @@ class StartScreen extends Phaser.Scene
 
     preload()
     {
-
+        
     }
 
     create()
@@ -21,7 +21,7 @@ class StartScreen extends Phaser.Scene
         console.log("Scene: Start Screen")
 
         // Creates rectangle
-        this.startButton = this.add.rectangle(750,450,300,150,0xffffff)
+        this.startButton = this.add.rectangle(800,450,300,150,0xffffff)
 
         // Makes rectangle interactive
         this.startButton.setInteractive()
@@ -30,7 +30,7 @@ class StartScreen extends Phaser.Scene
         this.startButton.on("pointerdown",this.onClickStart,this)
 
         // Adds the start button text
-        this.startButtonText = this.add.text(50,50,"Press To Start",)
+        this.startButtonText = this.add.text(800,450,"Press To Start",{color: 'blue'})
 
     }
 
