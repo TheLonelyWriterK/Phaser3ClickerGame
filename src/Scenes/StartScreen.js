@@ -25,7 +25,7 @@ class StartScreen extends Phaser.Scene
 
         // Makes rectangle interactive
         this.startButton.setInteractive()
-
+    
         // Makes start button work
         this.startButton.on("pointerdown",this.onClickStart,this)
 

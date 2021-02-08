@@ -16,6 +16,10 @@ class MainMenu extends Phaser.Scene
             this.upgradeMenuButton = null;
             this.upgradeMenuButtonText = null;
 
+            // Clicks Per Second
+            this.coinsPerSecondText = null;
+            this.coinsPerSecond = 0;
+
     }
 
     preload()
@@ -41,13 +45,17 @@ class MainMenu extends Phaser.Scene
 
         // Upgrade Menu Button
             // Creates the button that opens the upgrade menu
-            this.upgradeMenuButton = this.add.rectangle(800,100,100,50,0xff0000)
+            this.upgradeMenuButton = this.add.rectangle(800,700,100,50,0xff0000)
 
             // Sets upgradeMenuButton as interactive
             this.upgradeMenuButton.setInteractive()
 
             // Turns the upgradeMenuButton into an on state of interaction
             this.upgradeMenuButton.on("pointerdown",this.onClickUpgradeMenuOpen,this)
+
+        // Coins Per Second
+            // Creates the coins per second text
+            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
     }
 
     update()
@@ -63,11 +71,14 @@ class MainMenu extends Phaser.Scene
 
         // Changes the active display text for the money amount
         this.moneyText.setText("Money: " + this.money)
+
+        // Logs the money amount added
+        console.log("Added: " + this.moneyAmount)
     }
 
     onClickUpgradeMenuOpen()
     {
         // launches the upgrade screen
-        this.scene.launch("UpgradeScreen")
+        this.scene.switch("UpgradeScreen")
     }
 }

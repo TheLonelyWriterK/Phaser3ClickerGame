@@ -4,9 +4,6 @@ class UpgradeScreen extends Phaser.Scene
     {
         super("UpgradeScreen")
 
-        // Upgrade Background
-        this.upgradeBackground = null;
-
         // Upgrade Button
         this.upgradeButton = null;
         this.upgradeText = null;
@@ -14,8 +11,20 @@ class UpgradeScreen extends Phaser.Scene
         // Coins Per Second
         this.coinsPerSecondButton = null;
         this.coinsPerSecond = 0;
-        this.coinsPerSecondText = null;
         this.coinsPerSecondAmount = 0;
+
+        // Creates a variable that allows to access variables from the main menu
+        this.menu = null;
+
+
+
+    }
+
+    init()
+    {
+        // allows to access variables from MainMenu.js
+        this.menu = this.scene.get("MainMenu");
+
     }
 
     preload()
@@ -25,23 +34,19 @@ class UpgradeScreen extends Phaser.Scene
 
     create()
     {
-        // Creates the upgrade background
-            // Creates the background for the upgrade menu
-            this.upgradeBackground = this.add.rectangle(800,450,800,450,0x123456) 
-
         // Upgrade Button
             // Creates the button that will upgrade amount of money added
-            this.upgradeButton = this.add.rectangle(800,300,50,50,0x123456)
-
+            this.upgradeButton = this.add.rectangle(800,300,100,50,0xff0000)
             // Sets button as interactive
             this.upgradeButton.setInteractive()
 
             // Turns the button into an on state of interaction
             this.upgradeButton.on("pointerdown",this.onClickUpgrade,this)
 
+
         // Coins Per Second Upgrade
             // Creates a button that will add a coins per second upgrade
-            this.coinsPerSecondButton = this.add.rectangle(800,600,50,50,0xff0000)
+            this.coinsPerSecondButton = this.add.rectangle(800,600,100,50,0xff0000)
 
             // Sets button as interactive
             this.coinsPerSecondButton.setInteractive()
@@ -51,6 +56,10 @@ class UpgradeScreen extends Phaser.Scene
 
             // Creates the coins per second text
             this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
+
+            
+        // Displays money
+            this.moneyText = this.add.text(800,50,"Money: " + this.menu.money)
     }
 
     update()
@@ -65,8 +74,9 @@ class UpgradeScreen extends Phaser.Scene
 
     onClickClickPerSecUpgrade()
     {
+        console.log("test")
         this.coinsPerSecond += 1;
-        this.coinsPerSecondText.setText("Coins Per Second:" + this.coinsPerSecond)
+        this.coinsPerSecondText.setText("Coins Per Second:" + this.menu.coinsPerSecond)
 
     }
 }
