@@ -31,7 +31,7 @@ class UpgradeScreen extends Phaser.Scene
     init()
     {
         // allows to access variables from MainMenu.js
-        let menu = this.scene.get("MainMenu");
+        this.menu = this.scene.get("MainMenu");
 
     }
 
@@ -95,6 +95,7 @@ class UpgradeScreen extends Phaser.Scene
     onClickBackToMainMenu()
     {
         this.scene.switch ("MainMenu")
+    }
 
     onClickClickPerSecUpgrade()
     {
@@ -103,5 +104,4 @@ class UpgradeScreen extends Phaser.Scene
         this.coinsPerSecondText.setText("Coins Per Second:" + this.menu.coinsPerSecond)
 
     }
-}
 }
