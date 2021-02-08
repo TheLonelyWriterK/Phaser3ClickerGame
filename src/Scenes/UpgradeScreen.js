@@ -16,6 +16,11 @@ class UpgradeScreen extends Phaser.Scene
         // Creates a variable that allows to access variables from the main menu
         this.menu = null;
 
+        // Upgrade Screen Exit Button
+        this.upgradeExitButton = null;
+        this.upgradeExitButtonText = null;
+
+
 
 
     }
@@ -54,12 +59,22 @@ class UpgradeScreen extends Phaser.Scene
             // Turns the button into an on state of interaction
             this.coinsPerSecondButton.on("pointerdown",this.onClickClickPerSecUpgrade,this)
 
+        // Exits the upgrade screen
+            // Creates the button for exiting the upgrade screen
+            this.upgradeExitButton = this.add.rectangle(1600,900,50,50,0xff0000)
+
+            // Sets up button as interactive
+            this.upgradeExitButton.setInteractive()
+
+            // turns the button into an on state of interaction
+            this.upgradeExitButton.on("pointerdown",this.onClickBackToMainMenu,this)
+           
+        // Money Display
+            // Displays the money at the top
+            this.moneyText = this.add.text(800,50,"Money: " + this.menu.money)
+
             // Creates the coins per second text
             this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
-
-            
-        // Displays money
-            this.moneyText = this.add.text(800,50,"Money: " + this.menu.money)
     }
 
     update()
@@ -71,6 +86,10 @@ class UpgradeScreen extends Phaser.Scene
     {
         this.moneyAmount +=1
     }
+
+    onClickBackToMainMenu()
+    {
+        this.scene.switch ("MainMenu")
 
     onClickClickPerSecUpgrade()
     {
