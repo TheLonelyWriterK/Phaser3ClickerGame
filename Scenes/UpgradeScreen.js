@@ -31,7 +31,7 @@ class UpgradeScreen extends Phaser.Scene
     init()
     {
         // allows to access variables from MainMenu.js
-        this.menu = this.scene.get("MainMenu");
+        let menu = this.scene.get("MainMenu");
 
     }
 
@@ -76,7 +76,7 @@ class UpgradeScreen extends Phaser.Scene
 
         // Money Display
             // Displays the money at the top
-            this.moneyText = this.add.text(800,50,"Money: " + this.menu.money)
+            this.moneyText = this.add.text(800,50,"Money: " + menu.money)
 
             // Creates the coins per second text
             this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
