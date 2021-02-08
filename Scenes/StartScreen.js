@@ -31,7 +31,7 @@ class StartScreen extends Phaser.Scene
         this.startButton.on("pointerdown",this.onClickStart,this)
 
         // Adds the start button text
-        this.startButtonText = this.add.text(800,450,"Press To Start",{color: 'blue'})
+        this.startButtonText = this.add.text(800,450,"Press To Start",{color: 'blue',align: 'TOP_CENTER'})
 
     }
 

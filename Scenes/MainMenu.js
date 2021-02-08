@@ -23,6 +23,15 @@ class MainMenu extends Phaser.Scene
             this.coinsPerSecondText = null;
             this.coinsPerSecond = 0;
 
+            // Creates a variable to hold UpgradeScreen.js
+            this.menu = null;
+
+    }
+
+    init()
+    {
+        // allows to access variables from MainMenu.js
+        this.menu = this.scene.get("UpgradeScreen");
     }
 
     preload()
@@ -60,7 +69,7 @@ class MainMenu extends Phaser.Scene
 
         // Coins Per Second
             // Creates the coins per second text
-            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
+            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.menu.coinsPerSecond)
     }
 
 

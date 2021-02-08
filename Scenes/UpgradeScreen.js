@@ -32,7 +32,6 @@ class UpgradeScreen extends Phaser.Scene
     {
         // allows to access variables from MainMenu.js
         this.menu = this.scene.get("MainMenu");
-
     }
 
     preload()
@@ -42,6 +41,10 @@ class UpgradeScreen extends Phaser.Scene
 
     create()
     {
+        // Logs the current level
+        console.log("Scene: Upgrade Scene")
+
+
         // Upgrade Button
             // Creates the button that will upgrade amount of money added
             this.upgradeButton = this.add.rectangle(800,300,100,50,0xff0000)
@@ -65,7 +68,7 @@ class UpgradeScreen extends Phaser.Scene
 
         // Exits the upgrade screen
             // Creates the button for exiting the upgrade screen
-            this.upgradeExitButton = this.add.rectangle(1600,900,50,50,0xff0000)
+            this.upgradeExitButton = this.add.rectangle(1600,0,50,50,0xff0000)
 
             // Sets up button as interactive
             this.upgradeExitButton.setInteractive()
@@ -76,10 +79,10 @@ class UpgradeScreen extends Phaser.Scene
 
         // Money Display
             // Displays the money at the top
-            this.moneyText = this.add.text(800,50,"Money: " + menu.money)
+            this.moneyText = this.add.text(800,50,"Money: " + this.menu.money)
 
             // Creates the coins per second text
-            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
+            this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.menu.coinsPerSecond)
     }
 
     update()
@@ -94,13 +97,13 @@ class UpgradeScreen extends Phaser.Scene
 
     onClickBackToMainMenu()
     {
-        this.scene.switch ("MainMenu")
+        this.scene.switch("MainMenu")
     }
 
     onClickClickPerSecUpgrade()
     {
         console.log("test")
-        this.coinsPerSecond += 1;
+        this.menu.coinsPerSecond += 1;
         this.coinsPerSecondText.setText("Coins Per Second:" + this.menu.coinsPerSecond)
 
     }
