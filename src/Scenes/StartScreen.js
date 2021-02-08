@@ -5,6 +5,7 @@ class StartScreen extends Phaser.Scene
         // Names the level StartScreen
         super("StartScreen")
 
+        
         // Variables
         this.startButton = null;
         this.startButtonText = null;

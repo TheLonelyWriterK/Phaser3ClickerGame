@@ -5,6 +5,7 @@ class MainMenu extends Phaser.Scene
         // Names the level MainMenu
         super("MainMenu")
 
+
         // Variables
             // Money Button
             this.moneyButton = null;
@@ -12,9 +13,11 @@ class MainMenu extends Phaser.Scene
             this.money = 0;
             this.moneyAmount = 1;
 
+
             // Upgrade Menu Button
             this.upgradeMenuButton = null;
             this.upgradeMenuButtonText = null;
+
 
             // Clicks Per Second
             this.coinsPerSecondText = null;
@@ -29,6 +32,8 @@ class MainMenu extends Phaser.Scene
 
     create()
     {   
+        // logs the level
+        console.log("Scene: Main Menu")
         // Money Button
             // Creates the button that will add money
             this.moneyButton = this.add.rectangle(800,450,50,50,0xff0000)
@@ -58,10 +63,12 @@ class MainMenu extends Phaser.Scene
             this.coinsPerSecondText = this.add.text(800,80,"Coins Per Second:" + this.coinsPerSecond)
     }
 
+
     update()
     {
         
     }
+
 
     // Creates a function for clicking the red square and adding money
     onClickAddMoney()
@@ -75,6 +82,7 @@ class MainMenu extends Phaser.Scene
         // Logs the money amount added
         console.log("Added: " + this.moneyAmount)
     }
+
 
     onClickUpgradeMenuOpen()
     {
